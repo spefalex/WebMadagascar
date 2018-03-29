@@ -1,0 +1,7 @@
+web_mada:
+    resource: "@WebMadaBundle/Resources/config/routing.yml"
+    prefix:   /webmada
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation

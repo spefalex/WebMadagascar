@@ -1,0 +1,8 @@
+services:
+#    web_mada.example:
+#        class: WebMadaBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+   oc_service:
+
+        class: WebMadaBundle\Services\UserService

@@ -1,0 +1,27 @@
+web_mada_homepage:
+    path:     /
+    defaults: { _controller: WebMadaBundle:Default:index }
+
+read_user:
+    path:     /readUser
+    defaults: { _controller: WebMadaBundle:User:get }
+
+read_one_user:
+    path:     /readOneUser/{id}
+    defaults: { _controller: WebMadaBundle:User:id }
+
+new_user:
+    path:     /newUser
+    defaults: { _controller: WebMadaBundle:User:post }
+
+update_user:
+    path:     /updateUser/{id}
+    defaults: { _controller: WebMadaBundle:User:update }
+
+delete_user:
+    path:     /delete/{id}
+    defaults: { _controller: WebMadaBundle:User:delete }
+
+read_utilisateurs:
+    path:     /readUtilisateurs
+    defaults: { _controller: WebMadaBundle:Utilisateurs:getRead }
