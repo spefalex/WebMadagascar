@@ -1,0 +1,15 @@
+WebMadaBundle\Entity\Produit:
+    type: entity
+    table: null
+    repositoryClass: WebMadaBundle\Repository\ProduitRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        designation:
+            type: string
+            length: '50'
+    lifecycleCallbacks: {  }
