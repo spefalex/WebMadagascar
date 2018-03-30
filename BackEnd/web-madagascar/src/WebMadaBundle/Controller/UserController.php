@@ -131,14 +131,31 @@ if(empty($username) || empty($password))
 {
   return new View("NULL VALUES ARE NOT ALLOWED", Response::HTTP_NOT_ACCEPTABLE); 
 } 
-$valueBase=$em->getRepository("WebMadaBundle:User")->findOneBy(array('username'=>$username,'password'=>$password));
 
-$resUsername= $valueBase->getUsername();
-$resPassword = $valueBase->getPassword();
-$result['message']= $resPassword;
-$response = new Response(json_encode($result));
-$response->headers->set('Content-Type', 'application/json');
-return $response;
+$valueBase=$em->getRepository("WebMadaBundle:User")->login($username);
+foreach ($valueBase as $y) {$count=$y['usr'];}
 
+if($count == 1) {
+  $valueBase2=$em->getRepository("WebMadaBundle:User")->getPasswd($username);
+  foreach ($valueBase2 as $y) {$usr=$y['usr'];$paswd=$y['pass'];}
+  if($password == $paswd) {
+    $result['message']= 'OK';
+  $response = new Response(json_encode($result));
+  $response->headers->set('Content-Type', 'application/json');
+  return $response; } else {
+    $result['message']= 'Invalid password';
+    $response = new Response(json_encode($result));
+    $response->headers->set('Content-Type', 'application/json');
+    return $response;
+    
+  }
+} else {
+  $result['message']= 'Invalide username ou password';
+  $response = new Response(json_encode($result));
+  $response->headers->set('Content-Type', 'application/json');
+  return $response;
 }
-}
+  
+
+   }
+  } //end controller
