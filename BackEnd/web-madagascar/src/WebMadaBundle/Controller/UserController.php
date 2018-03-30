@@ -43,6 +43,8 @@ class UserController extends FOSRestController
     return $singleresult;
     }
 
+  
+
       /**
  * @Rest\Post("/user/")
  */
@@ -65,7 +67,7 @@ class UserController extends FOSRestController
   $response->headers->set('Content-Type', 'application/json');
           return $response;
  }
-
+  
 
   /**
  * @Rest\Put("/user/{id}")
@@ -116,5 +118,27 @@ else {
 }
  return new View("deleted successfully", Response::HTTP_OK);
 }
+         /**
+ * @Rest\Post("/loginUser")
+ */
+public function loginAction(Request $request)
+{
+  $data = new User;
+  $em = $this->getDoctrine()->getManager();
+  $username = $request->get('username');
+  $password= $request->get('password');
+if(empty($username) || empty($password))
+{
+  return new View("NULL VALUES ARE NOT ALLOWED", Response::HTTP_NOT_ACCEPTABLE); 
+} 
+$valueBase=$em->getRepository("WebMadaBundle:User")->findOneBy(array('username'=>$username,'password'=>$password));
 
+$resUsername= $valueBase->getUsername();
+$resPassword = $valueBase->getPassword();
+$result['message']= $resPassword;
+$response = new Response(json_encode($result));
+$response->headers->set('Content-Type', 'application/json');
+return $response;
+
+}
 }

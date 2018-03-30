@@ -14,6 +14,10 @@ new_user:
     path:     /newUser
     defaults: { _controller: WebMadaBundle:User:post }
 
+login_user:
+    path:     /loginUser
+    defaults: { _controller: WebMadaBundle:User:login }
+
 update_user:
     path:     /updateUser/{id}
     defaults: { _controller: WebMadaBundle:User:update }
@@ -25,3 +29,4 @@ delete_user:
 read_utilisateurs:
     path:     /readUtilisateurs
     defaults: { _controller: WebMadaBundle:Utilisateurs:getRead }
+
