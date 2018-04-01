@@ -98,28 +98,5 @@ class User
     {
         return $this->password;
     }
-
-    /**
-     * Set statusCompte
-     *
-     * @param string $statusCompte
-     *
-     * @return User
-     */
-    public function setStatusCompte($statusCompte)
-    {
-        $this->statusCompte = $statusCompte;
-
-        return $this;
-    }
-
-    /**
-     * Get statusCompte
-     *
-     * @return string
-     */
-    public function getStatusCompte()
-    {
-        return $this->statusCompte;
-    }
 }
+

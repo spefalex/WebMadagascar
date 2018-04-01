@@ -59,6 +59,7 @@ class UserController extends FOSRestController
  } 
   $data->setUsername($username);
   $data->setPassword($password);
+  $data->setStatusCompte("valid");
   $em = $this->getDoctrine()->getManager();
   $em->persist($data);
   $em->flush();

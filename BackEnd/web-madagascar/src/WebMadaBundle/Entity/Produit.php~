@@ -97,28 +97,5 @@ private $identification_categorie;
     {
         return $this->quantity;
     }
-
-    /**
-     * Set identificationCategorie
-     *
-     * @param \WebMadaBundle\Entity\Categorie $identificationCategorie
-     *
-     * @return Produit
-     */
-    public function setIdentificationCategorie(\WebMadaBundle\Entity\Categorie $identificationCategorie = null)
-    {
-        $this->identification_categorie = $identificationCategorie;
-
-        return $this;
-    }
-
-    /**
-     * Get identificationCategorie
-     *
-     * @return \WebMadaBundle\Entity\Categorie
-     */
-    public function getIdentificationCategorie()
-    {
-        return $this->identification_categorie;
-    }
 }
+
