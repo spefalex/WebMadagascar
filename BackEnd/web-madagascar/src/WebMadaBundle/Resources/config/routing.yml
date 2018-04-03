@@ -30,3 +30,7 @@ read_utilisateurs:
     path:     /readUtilisateurs
     defaults: { _controller: WebMadaBundle:Utilisateurs:getRead }
 
+
+read_categorie:
+    path:     /readCategorie
+    defaults: { _controller: WebMadaBundle:Categorie:readCategorie }
