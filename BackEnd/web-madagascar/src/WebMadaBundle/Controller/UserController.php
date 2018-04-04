@@ -129,6 +129,8 @@ public function loginAction(Request $request)
   $em = $this->getDoctrine()->getManager();
   $username = $request->get('username');
   $password= $request->get('password');
+  $passHas=md5($password);
+  
 if(empty($username) || empty($password))
 {
   return new View("NULL VALUES ARE NOT ALLOWED", Response::HTTP_NOT_ACCEPTABLE); 
@@ -140,7 +142,8 @@ foreach ($valueBase as $y) {$count=$y['usr'];}
 if($count == 1) {
   $valueBase2=$em->getRepository("WebMadaBundle:User")->getPasswd($username);
   foreach ($valueBase2 as $y) {$usr=$y['usr'];$paswd=$y['pass'];}
-  if($password == $paswd) {
+  
+  if($passHas == $paswd) {
     $result['message']= 'OK';
   $response = new Response(json_encode($result));
   $response->headers->set('Content-Type', 'application/json');
