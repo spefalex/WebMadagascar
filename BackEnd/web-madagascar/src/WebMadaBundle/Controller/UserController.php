@@ -58,7 +58,8 @@ class UserController extends FOSRestController
    return new View("NULL VALUES ARE NOT ALLOWED", Response::HTTP_NOT_ACCEPTABLE); 
  } 
   $data->setUsername($username);
-  $data->setPassword($password);
+  $passHas=md5($password);
+  $data->setPassword($passHas);
   $data->setStatusCompte("valid");
   $em = $this->getDoctrine()->getManager();
   $em->persist($data);

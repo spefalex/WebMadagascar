@@ -34,3 +34,7 @@ read_utilisateurs:
 read_categorie:
     path:     /readCategorie
     defaults: { _controller: WebMadaBundle:Categorie:readCategorie }
+
+inscription_user:
+    path:     /inscription
+    defaults: { _controller: WebMadaBundle:Utilisateurs:post }

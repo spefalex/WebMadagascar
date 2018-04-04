@@ -6,3 +6,6 @@ services:
    oc_service:
 
         class: WebMadaBundle\Services\UserService
+
+   sha256salted_encoder:
+        class: WebMadaBundle\Services\Sha256Salted
